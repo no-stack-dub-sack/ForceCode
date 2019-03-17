@@ -20,6 +20,7 @@ import staticResource from './staticResource';
 import { staticResourceDeployFromFile } from './staticResource';
 import settings from './settings';
 import bulkLoader from './bulkLoader';
+import apexDoc from './apexDoc';
 
 export {
   apexTest,
@@ -44,4 +45,5 @@ export {
   showMenu,
   staticResource,
   staticResourceDeployFromFile,
+  apexDoc
 };

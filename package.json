@@ -193,6 +193,28 @@
       "type": "object",
       "title": "ForceCode configuration",
       "properties": {
+        "force.apexDocConfig": {
+          "type": "object",
+          "default": {
+            "sourceDirectory": "",
+            "targetDirectory": "",
+            "sourceControlURL": "",
+            "homePagePath": "",
+            "bannerPagePath": "",
+            "scope": [
+              "global",
+              "public",
+              "protected",
+              "private",
+              "testMethod",
+              "webService"
+            ],
+            "title": "ApexDocs",
+            "showTOCSnippets": false,
+            "sortOrder": "alpha"
+          },
+          "description": "Configure ApexDoc2 to document your Apex .cls files."
+        },
         "force.allowAnonymousUsageTracking": {
           "type": "boolean",
           "default": false,

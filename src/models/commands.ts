@@ -24,6 +24,18 @@ import { createScratchOrg } from '../commands/createScratchOrg';
 
 export const fcCommands: FCCommand[] = [
   {
+    commandName: 'ForceCode.apexDoc',
+    name: 'Documenting Apex Files',
+    hidden: false,
+    description: 'Powered by ApexDoc2',
+    detail: 'Document your .cls files based on your force.apexDocConfig settings.',
+    icon: 'file-text',
+    label: 'Run ApexDoc',
+    command: function(context, selectedResource?) {
+      return commands.apexDoc();
+    },
+  },
+  {
     commandName: 'ForceCode.openOrg',
     name: 'Opening org in browser',
     hidden: false,
@@ -311,7 +323,7 @@ export const fcCommands: FCCommand[] = [
     hidden: false,
     description: 'Perform bulk CRUD operations',
     detail: 'Insert, update, or delete records in bulk by uploading a CSV file.',
-    icon: 'file',
+    icon: 'file-text',
     label: 'Bulk Loader',
     command: function(context, selectedResource?) {
       return commands.bulkLoader();
@@ -638,5 +650,5 @@ export const fcCommands: FCCommand[] = [
           return fcConnection.disconnect(conn);
         });
     },
-  },
+  }
 ];

@@ -4,6 +4,8 @@ import * as vscode from 'vscode';
 // define ApexDoc2 Config object
 interface ApexDoc2Config {
   sourceDirectory: string;
+  includes: string[],
+  excludes: string[],
   targetDirectory: string;
   sourceControlURL: string;
   homePagePath: string;
@@ -25,15 +27,19 @@ function buildCommand(config: ApexDoc2Config): string {
   const sourceControlURL = config.sourceControlURL;
   const homePagePath = config.homePagePath;
   const bannerPagePath = config.bannerPagePath;
+  const includes = config.includes;
+  const excludes = config.excludes;
 
   const command = `
     java -jar ${apexDoc2}
       -s "${config.sourceDirectory}"
       -t "${config.targetDirectory}"
-      -p ${config.scope.join(';')}
+      -p "${config.scope.join(',')}"
       -d "${config.title}"
       -c ${config.showTOCSnippets}
       -o ${config.sortOrder}
+      ${includes.length > 0 ? '-i "' + includes.join(',') + '"' : ''}
+      ${excludes.length > 0 ? '-e "' + excludes.join(',') + '"' : ''}
       ${sourceControlURL ? '-u "' + sourceControlURL + '"' : ''}
       ${homePagePath ? '-h "' + homePagePath + '"' : ''}
       ${bannerPagePath ? '-b "' + bannerPagePath + '"' : ''}

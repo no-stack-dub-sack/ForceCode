@@ -197,6 +197,8 @@
           "type": "object",
           "default": {
             "sourceDirectory": "",
+            "includes": [],
+            "excludes": [],
             "targetDirectory": "",
             "sourceControlURL": "",
             "homePagePath": "",
@@ -210,7 +212,7 @@
               "webService"
             ],
             "title": "ApexDocs",
-            "showTOCSnippets": false,
+            "showTOCSnippets": true,
             "sortOrder": "alpha"
           },
           "description": "Configure ApexDoc2 to document your Apex .cls files."
